@@ -12,7 +12,7 @@ class Gallery_model extends CI_Model
 		$this->db->insert('gallery',$object);
 	}
 
-	public function edtiPhoto($id,$photo){
+	public function updatePhoto($id,$photo){
 		$object = array(
 			'photo' => $photo
 		);
@@ -23,14 +23,13 @@ class Gallery_model extends CI_Model
 	public function getById($id){
 		$this->db->from('gallery');
 		$this->db->where('id',$id);
-		$query = $this->db->get();
+		$getById = $this->db->get();
 
-		if ($query->num_rows() == 1) {
-			return $query->result();
+		if($getById->num_rows() == 1){
+			return $getById->result();
 		}else{
 			return false;
 		}
-
 
 	}
 

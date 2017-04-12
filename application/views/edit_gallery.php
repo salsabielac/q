@@ -2,7 +2,6 @@
 <br>
 <br>
 
-
 <?php foreach($find as $data): ?>
 	<div class="col-md-4">
 			<div class="panel panel-primary">
@@ -15,16 +14,18 @@
 			</div>
 		</div>
 
-	<?php echo form_open_multipart('gallery/edit')?>
+	<?php echo form_open_multipart('gallery/update')?>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-gorup">
-					<input id="id" type="hidden" value="<?php echo $data->id ?>">
+					<input name="id" type="hidden" value="<?php echo $data->id ?>">
 				</div>
 				<div class="form-gorup">
-					<input name="poto" type="file" class="form-control">
+					<label for="">Pilih File : </label>
+					<input name="poto" type="file" class="form-control" required>
 				</div>
+				<br>
 				<div class="form-group">
 					<input type="submit" class="btn btn-primary">
 				</div>
@@ -32,5 +33,4 @@
 		</div>
 	</div>
 	<?php echo form_close()?>	
-
 <?php endforeach; ?>

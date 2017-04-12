@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 11, 2017 at 11:14 AM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Host: localhost
+-- Generation Time: 13 Apr 2017 pada 01.14
+-- Versi Server: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `codein`
@@ -23,42 +23,44 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gallery`
+-- Struktur dari tabel `gallery`
 --
 
-CREATE TABLE IF NOT EXISTS `gallery` (
-`id` int(5) NOT NULL,
+CREATE TABLE `gallery` (
+  `id` int(5) NOT NULL,
   `photo` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `gallery`
+-- Dumping data untuk tabel `gallery`
 --
 
 INSERT INTO `gallery` (`id`, `photo`) VALUES
-(6, 'IMG20161210193507.jpg'),
-(8, 'IMG20161210221323.jpg'),
-(9, 'IMG20161218180857.jpg'),
-(10, 'IMG20160707083741.jpg'),
-(11, 'IMG20160504092059.jpg');
+(31, 'C8jQK5MXcAAOn-P1.jpg'),
+(39, 'IMG20160504092059.jpg'),
+(40, 'IMG20161210221323.jpg'),
+(41, 'IMG20160707083741.jpg'),
+(42, 'IMG20161210193507.jpg'),
+(43, 'IMG20161218180857.jpg'),
+(44, 'IMG201605040920591.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ktm`
+-- Struktur dari tabel `ktm`
 --
 
-CREATE TABLE IF NOT EXISTS `ktm` (
+CREATE TABLE `ktm` (
   `nama` varchar(50) NOT NULL,
   `nim` int(10) NOT NULL,
   `ttl` varchar(30) NOT NULL,
   `jurusan` varchar(20) NOT NULL,
   `alamat` varchar(50) NOT NULL,
-`id` int(5) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `id` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ktm`
+-- Dumping data untuk tabel `ktm`
 --
 
 INSERT INTO `ktm` (`nama`, `nim`, `ttl`, `jurusan`, `alamat`, `id`) VALUES
@@ -67,19 +69,19 @@ INSERT INTO `ktm` (`nama`, `nim`, `ttl`, `jurusan`, `alamat`, `id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pegawai`
+-- Struktur dari tabel `pegawai`
 --
 
-CREATE TABLE IF NOT EXISTS `pegawai` (
-`id` int(5) NOT NULL,
+CREATE TABLE `pegawai` (
+  `id` int(5) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `nip` int(20) NOT NULL,
   `tanggal` date NOT NULL,
   `alamat` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pegawai`
+-- Dumping data untuk tabel `pegawai`
 --
 
 INSERT INTO `pegawai` (`id`, `nama`, `nip`, `tanggal`, `alamat`) VALUES
@@ -90,21 +92,21 @@ INSERT INTO `pegawai` (`id`, `nama`, `nip`, `tanggal`, `alamat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `visitor`
+-- Struktur dari tabel `visitor`
 --
 
-CREATE TABLE IF NOT EXISTS `visitor` (
-`id` int(5) NOT NULL,
+CREATE TABLE `visitor` (
+  `id` int(5) NOT NULL,
   `name` varchar(50) NOT NULL,
   `address` varchar(70) NOT NULL,
   `email` varchar(50) NOT NULL,
   `telephone` int(15) NOT NULL,
   `destination` varchar(30) NOT NULL,
   `plans` varchar(250) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `visitor`
+-- Dumping data untuk tabel `visitor`
 --
 
 INSERT INTO `visitor` (`id`, `name`, `address`, `email`, `telephone`, `destination`, `plans`) VALUES
@@ -120,25 +122,25 @@ INSERT INTO `visitor` (`id`, `name`, `address`, `email`, `telephone`, `destinati
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ktm`
 --
 ALTER TABLE `ktm`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `visitor`
 --
 ALTER TABLE `visitor`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -148,22 +150,22 @@ ALTER TABLE `visitor`
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT for table `ktm`
 --
 ALTER TABLE `ktm`
-MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `visitor`
 --
 ALTER TABLE `visitor`
-MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -6,6 +6,7 @@
 	<meta charset="utf-8">
 	<title>Salsabiela Cahyahaq</title>
     <link rel="stylesheet" href="<?php echo base_url('bower_components/bootstrap/dist/css/bootstrap.min.css') ?>">
+	<link rel="stylesheet" href="<?php echo base_url('bower_components/wow/css/libs/animate.css') ?>">
 </head>
 <body>
 
@@ -39,7 +40,7 @@
 					<a href="<?php echo base_url ('index.php/babon/tampil')?>">Visitor Data</a>
 				</li>
 				<li>
-					<a href="<?php echo base_url ('index.php/gallery')?>"></a>
+					<a href="<?php echo base_url ('index.php/gallery')?>">Galeri</a>
 				</li>				
 			</ul>
 		</div>
