@@ -5,7 +5,8 @@ class Pegawai extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
-		$this->load->model('pegawai_model');
+		$this->load->model('Pegawai_model');
+		$this->load->helper('date');
 	}
 	
 	public function index(){
