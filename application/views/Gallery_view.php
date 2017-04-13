@@ -40,7 +40,7 @@
 			<div class="panel panel-primary wow fadeInUp">
 				<div class="panel-heading">
 					<h3 class="panel-title ">Gallery</h3>
-					<a href="<?= base_url('index.php/').'gallery/edit/'.$data->id ?>" class="btn btn-danger pull-right wow bounce"><i class="glyphicon glyphicon-pencil"></i></a>
+					<a href="<?= base_url('index.php/').'gallery/edit/'.$data->id ?>" class="btn btn-primary pull-right wow bounce"><i class="glyphicon glyphicon-pencil"></i></a>
 					<a href="<?= base_url('index.php/').'gallery/hapus/'.$data->id ?>" class="btn btn-danger pull-right wow bounce"><i class="glyphicon glyphicon-trash"></i></a>
 				</div>
 				<div class="panel-body">

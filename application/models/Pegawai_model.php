@@ -17,6 +17,7 @@ class Pegawai_model extends CI_Model
 			'nip'=>$this->input->post('nip'),
 			'tanggal'=>$this->input->post('tanggal'),
 			'alamat'=>$this->input->post('alamat'),
+			'foto' =>$this->upload->data('file_name'),
 		);
 		$this->db->insert('pegawai',$object);
 	}
@@ -37,6 +38,11 @@ class Pegawai_model extends CI_Model
 		);
 		$this->db->where('id',$id);
 		$this->db->update('pegawai',$object);
+	}
+
+	public function delete($id){
+		$this->db->where('id',$id);
+		$this->db->delete('pegawai');
 	}
 }
 ?>

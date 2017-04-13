@@ -25,8 +25,22 @@ class Pegawai extends CI_Controller
 			$this->load->view('pegawai/add_view');
 		}else
 		{
-			$this->pegawai_model->insertPegawai();
-			$this->load->view('pegawai/add_sukses');
+			$config['upload_path']          = './gambar/upload/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 1000000000;
+            $config['max_width']            = 10240;
+            $config['max_height']           = 7680;
+
+            $this->load->library('upload', $config);
+
+            if ( ! $this->upload->do_upload('userfile'))
+            {
+                $error = array('error' => $this->upload->display_errors());
+				$this->load->view('pegawai/add_view',$error);
+            }else{
+            	$this->Pegawai_model->insertPegawai();
+				$this->load->view('pegawai/add_sukses');
+                }
 		}
 	}
 
@@ -35,13 +49,19 @@ class Pegawai extends CI_Controller
 		$this->form_validation->set_rules('nip', 'nip', 'trim|required');
 		$this->form_validation->set_rules('tanggal', 'tanggal', 'trim|required');
 		$this->form_validation->set_rules('alamat', 'alamat', 'trim|required');
-		$data['pegawai']=$this->pegawai_model->getDestination($id);
+		$data['pegawai']=$this->Pegawai_model->getPegawai($id);
+
 		if($this->form_validation->run()==FALSE){
 			$this->load->view('pegawai/edit_pegawai', $data);
 		}else{
-			$this->pegawai_model->updateById($id);
+			$this->Pegawai_model->updateById($id);
 			$this->load->view('pegawai/edit_success');
 		}
+	}
+
+	public function delete($id){
+		$this->Pegawai_model->delete($id);
+		$this->load->view('pegawai/delete_success');
 	}
 
 	public function save(){

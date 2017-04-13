@@ -18,8 +18,8 @@
 	</head>
 
 	<body>
-		<div class="alert alert-success">
-		<h1 class="text-center">Data berhasil diubah</h1>
+		<div>
+		<h1 class="text-center">Data berhasil dihapus.</h1>
 		<?php
 			echo anchor('pegawai/index', 'Lihat data pegawai');
 		?>
