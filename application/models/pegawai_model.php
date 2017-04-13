@@ -22,8 +22,21 @@ class Pegawai_model extends CI_Model
 	}
 	public function getPegawai()
 	{
-		$query = $this->db->query("SELECT nama ,nip , DAY(Tanggal) as tanggal, MONTH(Tanggal) as bulan, YEAR(Tanggal) as tahun, alamat from pegawai");
+		// $this->db->where('id',$id);
+		$query=$this->db->get('pegawai');
 		return $query->result();
+	}
+
+	public function updateById($id){
+		$object=array
+		(
+			'nama'=>$this->input->post('nama'),
+			'nip'=>$this->input->post('nip'),
+			'tanggal'=>$this->input->post('tanggal'),
+			'alamat'=>$this->input->post('alamat'),
+		);
+		$this->db->where('id',$id);
+		$this->db->update('pegawai',$object);
 	}
 }
 ?>

@@ -29,6 +29,20 @@ class Pegawai extends CI_Controller
 		}
 	}
 
+	public function update($id){
+		$this->form_validation->set_rules('nama', 'nama', 'trim|required');
+		$this->form_validation->set_rules('nip', 'nip', 'trim|required');
+		$this->form_validation->set_rules('tanggal', 'tanggal', 'trim|required');
+		$this->form_validation->set_rules('alamat', 'alamat', 'trim|required');
+		$data['pegawai']=$this->pegawai_model->getDestination($id);
+		if($this->form_validation->run()==FALSE){
+			$this->load->view('pegawai/edit_pegawai', $data);
+		}else{
+			$this->pegawai_model->updateById($id);
+			$this->load->view('pegawai/edit_success');
+		}
+	}
+
 	public function save(){
 		$this->load->view('header');
 		$this->load->view('save');
