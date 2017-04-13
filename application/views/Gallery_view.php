@@ -36,7 +36,7 @@
 		<?php echo form_close(); ?>
 		
 		<?php foreach($show as $data): ?> 	
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="panel panel-primary wow fadeInUp">
 				<div class="panel-heading">
 					<h3 class="panel-title ">Gallery</h3>

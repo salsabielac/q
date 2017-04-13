@@ -37,16 +37,21 @@ class Gallery extends CI_Controller
 	}
 
 	public function save(){
+		// Resize Image Here :)
+		// $config['image_library'] = 'gd2';
+  		// $config['source_image'] = $image_data['full_path']; //get original image
+  		// $config['maintain_ratio'] = TRUE;
+ 		// $config['width']         = 75;
+		// $config['height']       = 50;
+		
+		// $this->image_lib->resize();
+
 		$config['upload_path'] = 'gambar/upload';
 		$config['allowed_types'] = 'gif|jpg|png';
-
-		//Resize Image Here :)
-		$config['width']         = 75;
-		$config['height']       = 50;
 		
 		$this->load->library('upload', $config);
-		$this->load->library('image_lib', $config);
-
+		
+		
 		if ( ! $this->upload->do_upload('gambar')){
 			//$error = array('error' => $this->upload->display_errors());
 			$this->session->set_flashdata('msg_err', 'Data gagal disimpan :(');
@@ -54,9 +59,21 @@ class Gallery extends CI_Controller
 			redirect('gallery');
 		}
 		else{
+
+		$image_data = $this->upload->data();	
+			// Resize Image Here :)
+		$config['image_library'] = 'gd2';
+  		$config['source_image'] = $image_data['full_path']; //get original image
+  		$config['maintain_ratio'] = TRUE;
+ 		$config['width']         = 300;
+		$config['height']       = 300;
+
+		$this->load->library('image_lib', $config);
+
+		$this->image_lib->resize();
+
 			$data = array('upload_data' => $this->upload->data());
-			$photo = $this->upload->data('file_name');
-			$this->image_lib->resize();
+			$photo = $this->upload->data('file_name');	
 			$this->Gallery_model->insertPhoto($photo);
 			$this->session->set_flashdata('msg_success', 'Yay, data berhasil disimpan');
 			redirect('gallery');
